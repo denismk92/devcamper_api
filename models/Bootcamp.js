@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const BootcamSchema = new mongoose.Schema({
     name: {
@@ -100,6 +101,12 @@ const BootcamSchema = new mongoose.Schema({
     {
       toJSON: { virtuals: true },
       toObject: { virtuals: true }
+});
+
+// Create bootcam slug from the name
+BootcamSchema.pre('save', function(next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
 });
 
 module.exports = mongoose.model('Bootcamp', BootcamSchema)

@@ -6,6 +6,9 @@
 
 Rename config/config.env.env to config/config.env and update the missing values/settings to your own
 
+## API Page
+https://documenter.getpostman.com/view/36188616/2sA3e1Bpyx
+
 ## Install Dependencies
 ```
 npm install
